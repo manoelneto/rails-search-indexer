@@ -3,8 +3,6 @@ module Search
     extend ActiveSupport::Concern
 
     included do
-      Search.register_model self
-
       has_one :search_item, as: :searchable, class_name: 'Search::Item'
 
       after_save :sync_search
